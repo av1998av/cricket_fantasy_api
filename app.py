@@ -4,6 +4,14 @@ import requests
 
 app = Flask(__name__)
 
+teams_data = [
+	{"teamId" : 1, "name" : 'Visak'},
+	{"teamId" : 2, "name" : 'Aadhi'},
+	{"teamId" : 3, "name" : 'Hari'},
+	{"teamId" : 4, "name" : 'Sankar'},
+	{"teamId" : 5, "name" : 'Sivaguru'}
+];
+
 player_team_associations_data = [
     {'teamId': 1, 'playerId': 9782},
     {'teamId': 1, 'playerId': 60122},
@@ -179,11 +187,15 @@ def points():
 			"message" : "server error"
 		})
 
+@app.route("/teams")
+def teams():
+	return jsonify(teams_data)
+
 @app.route("/playerTeams")
 def player_team_associations():
 	return jsonify(player_team_associations_data)
 	
-@app.route("/playerId")
+@app.route("/playerIds")
 def player_ids():
 	return jsonify(player_ids_data)
 		
