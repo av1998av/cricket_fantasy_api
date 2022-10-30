@@ -1,0 +1,1 @@
+web: gunicorn  cricket-fantasy-api:app
