@@ -5,90 +5,90 @@ import requests
 app = Flask(__name__)
 
 teams_data = [
-	{"teamId" : 1, "name" : 'Visak'},
-	{"teamId" : 2, "name" : 'Aadhi'},
-	{"teamId" : 3, "name" : 'Hari'},
-	{"teamId" : 4, "name" : 'Sankar'},
-	{"teamId" : 5, "name" : 'Sivaguru'}
-];
+	{"name" : 'Visak','players' : [], 'points' : 0},
+	{"name" : 'Aadhi','players' : [], 'points' : 0},
+	{"name" : 'Hari','players' : [], 'points' : 0},
+	{"name" : 'Sankar','players' : [], 'points' : 0},
+	{"name" : 'Sivaguru','players' : [], 'points' : 0}
+]
 
 player_team_associations_data = [
-    {'teamId': 1, 'playerId': 9782},
-    {'teamId': 1, 'playerId': 60122},
-    {'teamId': 1, 'playerId': 3852},
-    {'teamId': 1, 'playerId': 28035},
-    {'teamId': 1, 'playerId': 4255},
-    {'teamId': 1, 'playerId': 65027},
-    {'teamId': 1, 'playerId': 58913},
-    {'teamId': 1, 'playerId': 63882},
-    {'teamId': 1, 'playerId': 22878},
-    {'teamId': 1, 'playerId': 67905},
-    {'teamId': 1, 'playerId': 66046},
-    {'teamId': 1, 'playerId': 4661},
-    {'teamId': 1, 'playerId': 63881},
-    {'teamId': 1, 'playerId': 74761},
-    {'teamId': 1, 'playerId': 4321},
-    {'teamId': 2, 'playerId': 11803},
-    {'teamId': 2, 'playerId': 63940},
-    {'teamId': 2, 'playerId': 10130},
-    {'teamId': 2, 'playerId': 10085},
-    {'teamId': 2, 'playerId': 65748},
-    {'teamId': 2, 'playerId': 5313},
-    {'teamId': 2, 'playerId': 4330},
-    {'teamId': 2, 'playerId': 9844},
-    {'teamId': 2, 'playerId': 59067},
-    {'teamId': 2, 'playerId': 10172},
-    {'teamId': 2, 'playerId': 57492},
-    {'teamId': 2, 'playerId': 48191},
-    {'teamId': 2, 'playerId': 4311},
-    {'teamId': 2, 'playerId': 63206},
-    {'teamId': 2, 'playerId': 57903},
-    {'teamId': 3, 'playerId': 5380},
-    {'teamId': 3, 'playerId': 10094},
-    {'teamId': 3, 'playerId': 62576},
-    {'teamId': 3, 'playerId': 4792},
-    {'teamId': 3, 'playerId': 57871},
-    {'teamId': 3, 'playerId': 65739},
-    {'teamId': 3, 'playerId': 70326},
-    {'teamId': 3, 'playerId': 65295},
-    {'teamId': 3, 'playerId': 4357},
-    {'teamId': 3, 'playerId': 63719},
-    {'teamId': 3, 'playerId': 67927},
-    {'teamId': 3, 'playerId': 65584},
-    {'teamId': 3, 'playerId': 7797},
-    {'teamId': 3, 'playerId': 67442},
-    {'teamId': 3, 'playerId': 67519},
-    {'teamId': 4, 'playerId': 20286},
-    {'teamId': 4, 'playerId': 63751},
-    {'teamId': 4, 'playerId': 13177},
-    {'teamId': 4, 'playerId': 56964},
-    {'teamId': 4, 'playerId': 4688},
-    {'teamId': 4, 'playerId': 5132},
-    {'teamId': 4, 'playerId': 66368},
-    {'teamId': 4, 'playerId': 63641},
-    {'teamId': 4, 'playerId': 67402},
-    {'teamId': 4, 'playerId': 63875},
-    {'teamId': 4, 'playerId': 4235},
-    {'teamId': 4, 'playerId': 10183},
-    {'teamId': 4, 'playerId': 3632},
-    {'teamId': 4, 'playerId': 69956},
-    {'teamId': 4, 'playerId': 26718},
-    {'teamId': 5, 'playerId': 59429},
-    {'teamId': 5, 'playerId': 3993},
-    {'teamId': 5, 'playerId': 10053},
-    {'teamId': 5, 'playerId': 66833},
-    {'teamId': 5, 'playerId': 64219},
-    {'teamId': 5, 'playerId': 63611},
-    {'teamId': 5, 'playerId': 3782},
-    {'teamId': 5, 'playerId': 4338},
-    {'teamId': 5, 'playerId': 4196},
-    {'teamId': 5, 'playerId': 57935},
-    {'teamId': 5, 'playerId': 69274},
-    {'teamId': 5, 'playerId': 5407},
-    {'teamId': 5, 'playerId': 67717},
-    {'teamId': 5, 'playerId': 25422},
-    {'teamId': 5, 'playerId': 48607}
-];
+    {'teamId': 0, 'playerId': 9782},
+    {'teamId': 0, 'playerId': 60122},
+    {'teamId': 0, 'playerId': 3852},
+    {'teamId': 0, 'playerId': 28035},
+    {'teamId': 0, 'playerId': 4255},
+    {'teamId': 0, 'playerId': 65027},
+    {'teamId': 0, 'playerId': 58913},
+    {'teamId': 0, 'playerId': 63882},
+    {'teamId': 0, 'playerId': 22878},
+    {'teamId': 0, 'playerId': 67905},
+    {'teamId': 0, 'playerId': 66046},
+    {'teamId': 0, 'playerId': 4661},
+    {'teamId': 0, 'playerId': 63881},
+    {'teamId': 0, 'playerId': 74761},
+    {'teamId': 0, 'playerId': 4321},
+    {'teamId': 1, 'playerId': 11803},
+    {'teamId': 1, 'playerId': 63940},
+    {'teamId': 1, 'playerId': 10130},
+    {'teamId': 1, 'playerId': 10085},
+    {'teamId': 1, 'playerId': 65748},
+    {'teamId': 1, 'playerId': 5313},
+    {'teamId': 1, 'playerId': 4330},
+    {'teamId': 1, 'playerId': 9844},
+    {'teamId': 1, 'playerId': 59067},
+    {'teamId': 1, 'playerId': 10172},
+    {'teamId': 1, 'playerId': 57492},
+    {'teamId': 1, 'playerId': 48191},
+    {'teamId': 1, 'playerId': 4311},
+    {'teamId': 1, 'playerId': 63206},
+    {'teamId': 1, 'playerId': 57903},
+    {'teamId': 2, 'playerId': 5380},
+    {'teamId': 2, 'playerId': 10094},
+    {'teamId': 2, 'playerId': 62576},
+    {'teamId': 2, 'playerId': 4792},
+    {'teamId': 2, 'playerId': 57871},
+    {'teamId': 2, 'playerId': 65739},
+    {'teamId': 2, 'playerId': 70326},
+    {'teamId': 2, 'playerId': 65295},
+    {'teamId': 2, 'playerId': 4357},
+    {'teamId': 2, 'playerId': 63719},
+    {'teamId': 2, 'playerId': 67927},
+    {'teamId': 2, 'playerId': 65584},
+    {'teamId': 2, 'playerId': 7797},
+    {'teamId': 2, 'playerId': 67442},
+    {'teamId': 2, 'playerId': 67519},
+    {'teamId': 3, 'playerId': 20286},
+    {'teamId': 3, 'playerId': 63751},
+    {'teamId': 3, 'playerId': 13177},
+    {'teamId': 3, 'playerId': 56964},
+    {'teamId': 3, 'playerId': 4688},
+    {'teamId': 3, 'playerId': 5132},
+    {'teamId': 3, 'playerId': 66368},
+    {'teamId': 3, 'playerId': 63641},
+    {'teamId': 3, 'playerId': 67402},
+    {'teamId': 3, 'playerId': 63875},
+    {'teamId': 3, 'playerId': 4235},
+    {'teamId': 3, 'playerId': 10183},
+    {'teamId': 3, 'playerId': 3632},
+    {'teamId': 3, 'playerId': 69956},
+    {'teamId': 3, 'playerId': 26718},
+    {'teamId': 4, 'playerId': 59429},
+    {'teamId': 4, 'playerId': 3993},
+    {'teamId': 4, 'playerId': 10053},
+    {'teamId': 4, 'playerId': 66833},
+    {'teamId': 4, 'playerId': 64219},
+    {'teamId': 4, 'playerId': 63611},
+    {'teamId': 4, 'playerId': 3782},
+    {'teamId': 4, 'playerId': 4338},
+    {'teamId': 4, 'playerId': 4196},
+    {'teamId': 4, 'playerId': 57935},
+    {'teamId': 4, 'playerId': 69274},
+    {'teamId': 4, 'playerId': 5407},
+    {'teamId': 4, 'playerId': 67717},
+    {'teamId': 4, 'playerId': 25422},
+    {'teamId': 4, 'playerId': 48607}
+]
 
 player_ids_data = [
     9782,
@@ -166,9 +166,9 @@ player_ids_data = [
     67717,
     25422,
     48607
-];
+]
 
-@app.route("/points")
+@app.route("/")
 def points():
 	res = requests.get('https://icc.dream11.com/icc-season/services/feed/player/stats', 
 	headers = {
@@ -179,25 +179,23 @@ def points():
 		'Accept-Encoding': 'gzip, deflate, br',
 		'Sec-Fetch-Mode': 'cors',
 		'Access-Control-Allow-Origin': '*'
-	});
+	})
 	if res.status_code == 200:
-		return res.json()
+		for player in json.loads(res.text)['Data']['Value']['PlayerStats']:
+			if player['plyrid'] in player_ids_data:
+				team_id = [x['teamId'] for x in player_team_associations_data if x['playerId'] == player['plyrid']][0]
+				teams_data[team_id]['players'].append({
+				    'playerId' : player['plyrid'],
+				    'playerName' : player['plyrnm'],
+				    'points' : int(player['ovrpoint'])
+ 				})
+				teams_data[team_id]['points'] += int(player['ovrpoint'])
+		return json.dumps(teams_data)
 	else:
-		return jsonify({
+	    return jsonify({
 			"message" : "server error"
-		})
-
-@app.route("/teams")
-def teams():
-	return jsonify(teams_data)
-
-@app.route("/playerTeams")
-def player_team_associations():
-	return jsonify(player_team_associations_data)
-	
-@app.route("/playerIds")
-def player_ids():
-	return jsonify(player_ids_data)
+        })
+    
 		
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
