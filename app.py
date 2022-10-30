@@ -4,14 +4,6 @@ import requests
 
 app = Flask(__name__)
 
-teams_data = [
-	{"name" : 'Visak','players' : [], 'points' : 0},
-	{"name" : 'Aadhi','players' : [], 'points' : 0},
-	{"name" : 'Hari','players' : [], 'points' : 0},
-	{"name" : 'Sankar','players' : [], 'points' : 0},
-	{"name" : 'Sivaguru','players' : [], 'points' : 0}
-]
-
 player_team_associations_data = [
     {'teamId': 0, 'playerId': 9782},
     {'teamId': 0, 'playerId': 60122},
@@ -170,7 +162,13 @@ player_ids_data = [
 
 @app.route("/")
 def points():
-	teams_data = []
+	teams_data = [
+        {"name" : 'Visak','players' : [], 'points' : 0},
+        {"name" : 'Aadhi','players' : [], 'points' : 0},
+        {"name" : 'Hari','players' : [], 'points' : 0},
+        {"name" : 'Sankar','players' : [], 'points' : 0},
+        {"name" : 'Sivaguru','players' : [], 'points' : 0}
+    ]
 	res = requests.get('https://icc.dream11.com/icc-season/services/feed/player/stats', 
 	headers = {
 		'Content-Type': 'application/json',
