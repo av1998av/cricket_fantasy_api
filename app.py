@@ -1,8 +1,10 @@
 import json
 from flask import Flask, jsonify
+from flask_cors import CORS, cross_origin
 import requests
 
 app = Flask(__name__)
+cors = CORS(app)
 
 player_team_associations_data = [
     {'teamId': 0, 'playerId': 9782},
