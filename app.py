@@ -170,6 +170,7 @@ player_ids_data = [
 
 @app.route("/")
 def points():
+    teams_data = []
 	res = requests.get('https://icc.dream11.com/icc-season/services/feed/player/stats', 
 	headers = {
 		'Content-Type': 'application/json',
